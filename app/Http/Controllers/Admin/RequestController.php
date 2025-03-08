@@ -39,6 +39,7 @@ class RequestController extends Controller
         $booking->save();
         $avalibleTable->save();
 
+        
         return response()->json(['message' => 'Booking accepted successfully']);
     }
 
@@ -49,7 +50,7 @@ class RequestController extends Controller
         $avalibleTable = AvailableTable::find($avalibleTable_id);
         $avalibleTable->status = 'available';
         $booking->status = 'rejected';
-        
+
         $booking->save();
         $avalibleTable->save();
         return response()->json(['message' => 'Booking rejected successfully']);
